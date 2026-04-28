@@ -1,0 +1,14 @@
+/* 10K Humans — design tokens. Drop into any web surface for the brand palette. */
+:root {
+  --c-purple: #540043; --c-purple-soft: #7B2566; --c-purple-ink: #3A002F;
+  --c-orange: #FF9A28; --c-orange-deep: #E76020; --c-burnt: #C51F0E;
+  --c-cream: #FBC978;  --c-cream-soft: #FDE2B0;
+  --c-paper: #FFFFFF;  --c-paper-warm: #FBF1D9;
+  --c-navy: #193950;   --c-navy-mid: #3F5A74;
+  --c-teal: #006263;   --c-sage: #63B194;
+  --c-coral: #F6644E;  --c-red: #C51F0E;
+  --c-cool: #D9E0E5;   --c-slate: #668398;
+  --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+  --font-body: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Gilmer', 'Cabinet Grotesk', 'Inter', system-ui, sans-serif;
+}
