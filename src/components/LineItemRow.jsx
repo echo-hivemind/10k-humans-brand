@@ -1,6 +1,6 @@
 import { color, type } from '../tokens/index.js';
 
-function fmt(n) { return n == null ? 'TBD' : `${n.toLocaleString()}`; }
+function fmt(n) { return n == null ? 'TBD' : `$${n.toLocaleString()}`; }
 
 // Single row in the Estimate breakdown. Shows the line name, optional sub-detail,
 // and a value range or a "TBD" placeholder for note-priced items.
