@@ -1,4 +1,4 @@
-import { color, type, radius } from '../theme/tokens.js';
+import { color, type, radius } from '../tokens/index.js';
 
 const VARIANTS = {
   primary:   { bg: color.orange,    fg: color.navy,   hover: color.orangeDeep },

@@ -1,4 +1,4 @@
-import { color, type, radius } from '../theme/tokens.js';
+import { color, type, radius } from '../tokens/index.js';
 
 // Compact card for a single labeled number/value. Used in the metric strip on
 // the Estimate page (Estimate / Participants / Field length / Feasibility).

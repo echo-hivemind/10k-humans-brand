@@ -1,6 +1,6 @@
 // Brand motif — concentric circles, lifted from the 10K Humans illustration system.
 // Renders a stack of rings in the brand palette. Decorative; aria-hidden.
-import { color } from '../theme/tokens.js';
+import { color } from '../tokens/index.js';
 
 const RINGS = [
   { r: 95, fill: color.sage   },

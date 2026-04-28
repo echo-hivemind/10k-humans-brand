@@ -1,4 +1,4 @@
-import { color, radius, space } from '../theme/tokens.js';
+import { color, radius, space } from '../tokens/index.js';
 
 // Generic surface used to bound bid content. Use the `tone` prop to shift the
 // surface toward sage / coral / cream variants for semantic emphasis.

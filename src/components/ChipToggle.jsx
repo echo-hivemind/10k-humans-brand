@@ -1,4 +1,4 @@
-import { color, type, radius } from '../theme/tokens.js';
+import { color, type, radius } from '../tokens/index.js';
 
 // Single multi-select chip — clickable card style. Used for add-ons.
 export default function ChipToggle({ label, hint, selected, onToggle }) {

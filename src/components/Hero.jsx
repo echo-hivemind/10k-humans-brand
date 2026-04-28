@@ -1,5 +1,5 @@
 import ConcentricCircles from './ConcentricCircles.jsx';
-import { color, type } from '../theme/tokens.js';
+import { color, type } from '../tokens/index.js';
 
 // Brand hero band — deep purple background with the concentric-circles motif
 // drifting off the right edge. Used at the top of long-form pages (Estimate,

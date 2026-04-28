@@ -1,4 +1,4 @@
-import { color, type, radius } from '../theme/tokens.js';
+import { color, type, radius } from '../tokens/index.js';
 
 // Horizontal progress indicator for the wizard. Shows numbered dots + labels
 // with the current step highlighted in orange and completed steps filled with purple.

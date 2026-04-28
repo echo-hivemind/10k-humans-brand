@@ -1,4 +1,4 @@
-import { color, type } from '../theme/tokens.js';
+import { color, type } from '../tokens/index.js';
 
 // Range slider used for IR (and anywhere else a 1–100 value is needed).
 // The track tone shifts with the band the value lands in (sage / coral / red).

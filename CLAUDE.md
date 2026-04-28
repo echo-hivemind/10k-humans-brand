@@ -42,3 +42,10 @@ Type: **Gilmer Heavy** (licensed) for headlines, **Public Sans** (free, Google F
 ## Related repos
 - [bids-feasibility-calculator](https://github.com/kerryelizabeth73/bids-feasibility-calculator) — first consumer; the calculator's frontend is built entirely on these primitives.
 - Future: client-portal, pm-dashboard, 10k-voices-admin.
+
+## Brand-compliance pattern for consuming apps
+Every 10K Humans client-facing repo should have a section in its own CLAUDE.md that says:
+
+> **Brand:** Pulls from `@10khumans/brand`. Never hardcode hex — import from `@10khumans/brand/tokens`. Use brand component primitives where they exist. Run the brand-check checklist (`docs/ADOPTION.md` here) before any client-facing surface ships.
+
+Adoption playbook: see `docs/ADOPTION.md`.

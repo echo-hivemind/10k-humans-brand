@@ -1,19 +1,24 @@
 {
   "name": "@10khumans/brand",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "10K Humans brand system — design tokens, CSS variables, and React component primitives shared across all 10K Humans client-facing apps.",
   "type": "module",
   "main": "src/index.js",
   "exports": {
-    ".":               "./src/index.js",
-    "./tokens":        "./src/tokens/index.js",
-    "./tokens.json":   "./src/tokens/tokens.json",
-    "./components":    "./src/components/index.js",
-    "./css":           "./src/css/globals.css",
-    "./tokens.css":    "./src/css/tokens.css"
+    ".": "./src/index.js",
+    "./tokens": "./src/tokens/index.js",
+    "./tokens.json": "./src/tokens/tokens.json",
+    "./components": "./src/components/index.js",
+    "./css": "./src/css/globals.css",
+    "./tokens.css": "./src/css/tokens.css"
   },
-  "files": ["src/"],
-  "peerDependencies": { "react": ">=18", "react-dom": ">=18" },
+  "files": [
+    "src/"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/kerryelizabeth73/10k-humans-brand.git"

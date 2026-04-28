@@ -1,4 +1,4 @@
-import { color, type, radius } from '../theme/tokens.js';
+import { color, type, radius } from '../tokens/index.js';
 
 const LEVELS = {
   high:   { bg: color.sage,  label: 'High',     fg: color.navy },
