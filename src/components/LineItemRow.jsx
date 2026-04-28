@@ -1,10 +1,10 @@
 import { color, type } from '../tokens/index.js';
-// Inlined formatter — no external pricing dependency
+
+function fmt(n) { return n == null ? 'TBD' : `${n.toLocaleString()}`; }
 
 // Single row in the Estimate breakdown. Shows the line name, optional sub-detail,
 // and a value range or a "TBD" placeholder for note-priced items.
 
-function fmt(n) { return n == null ? 'TBD' : `$${n.toLocaleString()}`; }`; }
 export default function LineItemRow({ line, isLast = false, highlight = false }) {
   const value =
     line.low == null
