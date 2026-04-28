@@ -15,7 +15,7 @@ export default function Hero({
       style={{
         position: 'relative',
         background: color.purple,
-        color: color.cream,
+        color: color.paper,
         padding: '28px 36px',
         overflow: 'hidden',
       }}
