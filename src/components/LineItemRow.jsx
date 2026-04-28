@@ -4,7 +4,7 @@ import { color, type } from '../tokens/index.js';
 // Single row in the Estimate breakdown. Shows the line name, optional sub-detail,
 // and a value range or a "TBD" placeholder for note-priced items.
 
-function fmt(n) { return n == null ? 'TBD' : `${n.toLocaleString()}`; }
+function fmt(n) { return n == null ? 'TBD' : `$${n.toLocaleString()}`; }`; }
 export default function LineItemRow({ line, isLast = false, highlight = false }) {
   const value =
     line.low == null
