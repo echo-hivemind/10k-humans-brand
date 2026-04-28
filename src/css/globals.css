@@ -1,9 +1,9 @@
 /* 10K Humans — Bids & Feasibility Calculator — global styles */
 
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800,900&display=swap');
 
 :root {
-  /* Color tokens (mirror tokens.js for use in CSS contexts) */
   --c-purple:      #540043;
   --c-purple-soft: #7B2566;
   --c-purple-ink:  #3A002F;
@@ -27,8 +27,8 @@
   --r-lg:  12px;
   --r-xl:  16px;
 
-  --font-body:    'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Gilmer', 'Cabinet Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Cabinet Grotesk', 'Inter', system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -41,16 +41,13 @@ html, body {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.55;
+  font-feature-settings: 'cv11', 'ss03', 'ss01';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+#root { min-height: 100vh; display: flex; flex-direction: column; }
 
 button {
   font-family: inherit;
@@ -96,14 +93,12 @@ a {
 
 a:hover { color: var(--c-orange-deep); }
 
-/* Headline display class — fallback weight 800 if Gilmer unavailable */
 .display {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
-/* Eyebrow / label utility */
 .eyebrow {
   font-size: 11px;
   letter-spacing: 0.10em;
@@ -112,7 +107,6 @@ a:hover { color: var(--c-orange-deep); }
   color: var(--c-purple);
 }
 
-/* Hide visually but expose to screen readers */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;

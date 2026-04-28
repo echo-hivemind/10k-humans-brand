@@ -42,9 +42,9 @@ export const color = {
 export const type = {
   // Headlines: Gilmer Heavy is licensed; fallback to a heavy geometric stack.
   // Replace with @font-face Gilmer Heavy when license is provisioned.
-  display: `'Gilmer', 'Cabinet Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif`,
+  display: `'Cabinet Grotesk', 'Inter', system-ui, sans-serif`,
   // Body: Public Sans (free, Google Fonts).
-  body:    `'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif`,
+  body:    `'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif`,
   mono:    `'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace`,
 
   size: {
