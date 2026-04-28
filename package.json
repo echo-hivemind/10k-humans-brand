@@ -1,6 +1,6 @@
 {
   "name": "@10khumans/brand",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "10K Humans brand system — design tokens, CSS variables, and React component primitives shared across all 10K Humans client-facing apps.",
   "type": "module",
   "main": "src/index.js",
