@@ -5,6 +5,7 @@ export { default as Button } from './Button.jsx';
 export { default as FeasibilityBadge } from './FeasibilityBadge.jsx';
 export { default as LineItemRow } from './LineItemRow.jsx';
 export { default as ConcentricCircles } from './ConcentricCircles.jsx';
+export { default as HalfCircleHero } from './HalfCircleHero.jsx';
 export { default as Field, TextInput, TextArea, Select } from './Field.jsx';
 export { default as Slider } from './Slider.jsx';
 export { default as ChipToggle } from './ChipToggle.jsx';
