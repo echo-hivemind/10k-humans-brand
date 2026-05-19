@@ -10,3 +10,4 @@ export { default as Field, TextInput, TextArea, Select } from './Field.jsx';
 export { default as Slider } from './Slider.jsx';
 export { default as ChipToggle } from './ChipToggle.jsx';
 export { default as Stepper } from './Stepper.jsx';
+export { default as AccessGate } from './AccessGate.jsx';
