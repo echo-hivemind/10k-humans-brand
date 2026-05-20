@@ -11,3 +11,4 @@ export { default as Slider } from './Slider.jsx';
 export { default as ChipToggle } from './ChipToggle.jsx';
 export { default as Stepper } from './Stepper.jsx';
 export { default as AccessGate } from './AccessGate.jsx';
+export { default as FileDrop } from './FileDrop.jsx';
