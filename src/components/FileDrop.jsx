@@ -9,12 +9,18 @@ import { color, type, radius } from '../tokens/index.js';
 // Props:
 //   accept       — MIME type list passed to the underlying <input>. Default ''.
 //   maxBytes     — soft-cap. If exceeded, calls onError and does not call onChange.
+//                  Default 5 MB (consumer-side default; raise per-consumer for
+//                  larger client briefs).
+//   maxLabel     — optional override for the human-readable cap in the default
+//                  hint. If omitted, the default hint formats maxBytes in MB.
 //   file         — controlled current File | null
 //   onChange     — (file: File | null) => void
 //   onError      — (msg: string) => void (called when maxBytes exceeded or
 //                  the browser rejects the file)
 //   label        — text rendered inside the drop zone when empty
-//   hint         — secondary text below the label
+//   hint         — secondary text below the label. If you pass `hint`, you own
+//                  the whole line. If you leave hint undefined, FileDrop emits
+//                  "PDF, DOCX, or TXT · up to {maxLabel || formatBytes(maxBytes)}".
 //   disabled     — boolean; greys out the zone
 //
 // Visual: cream panel with a dashed purple-on-cream border that turns solid
@@ -23,14 +29,23 @@ import { color, type, radius } from '../tokens/index.js';
 export default function FileDrop({
   accept = '',
   maxBytes = 5 * 1024 * 1024,
+  maxLabel,
   file = null,
   onChange,
   onError,
   label = 'Drop your brief here, or click to browse',
-  hint = 'PDF, DOCX, or TXT · up to 5 MB',
+  hint,
   disabled = false,
   id = 'filedrop',
 }) {
+  const formatBytes = (bytes) => {
+    const mb = bytes / 1024 / 1024;
+    if (mb >= 10 || Number.isInteger(mb)) return `${Math.round(mb)} MB`;
+    return `${mb.toFixed(1)} MB`;
+  };
+  const computedHint = hint != null
+    ? hint
+    : `PDF, DOCX, or TXT · up to ${maxLabel || formatBytes(maxBytes)}`;
   const [dragging, setDragging] = useState(false);
   const inputRef = useRef(null);
 
@@ -170,12 +185,12 @@ export default function FileDrop({
         color: color.navy,
         fontWeight: type.weight.medium,
       }}>{label}</div>
-      {hint && (
+      {computedHint && (
         <div style={{
           marginTop: 6,
           fontSize: type.size.sm,
           color: color.navyMid,
-        }}>{hint}</div>
+        }}>{computedHint}</div>
       )}
     </div>
   );
