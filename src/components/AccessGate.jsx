@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { color, type, radius } from '../tokens/index.js';
 import HalfCircleHero from './HalfCircleHero.jsx';
 
@@ -31,8 +31,8 @@ import HalfCircleHero from './HalfCircleHero.jsx';
 //   - children       (renderable, required): the gated content
 //
 // Embed-constraint note: per /projects/platform-ecosystem.md, every client-facing
-// tool must support `?embed=1` to render inside the portal frame. Upstream code
-// should set `embedded={url.searchParams.get('embed') === '1'}` so this gate
+// tool must support ?embed=1 to render inside the portal frame. Upstream code
+// should set embedded={url.searchParams.get('embed') === '1'} so this gate
 // becomes a no-op in embedded mode (the portal handles auth at the frame level).
 
 export default function AccessGate({
@@ -51,33 +51,38 @@ export default function AccessGate({
   const [errorMsg, setErrorMsg] = useState(null);
   const [attempts, setAttempts] = useState(0);
 
+  // Ref guard: prevents the silent-validation effect from firing twice when
+  // setStatus('validating') triggers a re-render. A plain `cancelled` boolean
+  // inside the effect would be reset on each cleanup/re-run cycle, causing
+  // setStatus('unlocked') to never be called and the page to hang on "Checking...".
+  const _silentDone = useRef(false);
+
   // Embedded mode: always unlocked.
   useEffect(() => {
     if (embedded) setStatus('unlocked');
   }, [embedded]);
 
   // Silent validation when `code` arrives via URL.
+  // `status` intentionally omitted from deps -- the _silentDone ref guards
+  // against double-runs without re-triggering on every status transition.
   useEffect(() => {
-    if (embedded || !initialCode || status !== 'idle') return;
-    let cancelled = false;
+    if (embedded || !initialCode || _silentDone.current) return;
+    _silentDone.current = true;
     (async () => {
       setStatus('validating');
       try {
         const r = await onValidate(initialCode);
-        if (cancelled) return;
         if (r?.ok) setStatus('unlocked');
         else {
           if (r?.reason === 'soft_blocked') setStatus('softBlocked');
           else { setStatus('error'); setErrorMsg(r?.message || 'That code was not recognized.'); setAttempts((a) => a + 1); }
         }
       } catch (e) {
-        if (cancelled) return;
         setStatus('error');
         setErrorMsg(e?.message || 'Could not validate code.');
       }
     })();
-    return () => { cancelled = true; };
-  }, [initialCode, embedded, onValidate, status]);
+  }, [initialCode, embedded, onValidate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (status === 'unlocked' || embedded) return children;
 
@@ -161,7 +166,7 @@ export default function AccessGate({
                   opacity: code ? 1 : 0.5,
                 }}
               >
-                {status === 'validating' ? 'Checking…' : 'View estimate'}
+                {status === 'validating' ? 'Checking...' : 'View estimate'}
               </button>
             </>
           )}
